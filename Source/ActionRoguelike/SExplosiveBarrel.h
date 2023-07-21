@@ -24,16 +24,16 @@ protected:
 
 	UPROPERTY(VisibleAnywhere)
 	URadialForceComponent* RadialForceComponent;
-	
-	// Called when the game starts or when spawned
-	virtual void BeginPlay() override;
+
+	virtual void PostInitializeComponents() override;
 
 	// UPrimitiveComponent*, HitComponent, AActor*, OtherActor, UPrimitiveComponent*, OtherComp, FVector, NormalImpulse, const FHitResult&, Hit 
 	UFUNCTION()
 	void OnExplosiveBarrelHit(UPrimitiveComponent* HitComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit);
 
-public:	
-	// Called every frame
-	virtual void Tick(float DeltaTime) override;
+	UFUNCTION(BlueprintCallable)
+	void Explode();
+	
+
 
 };
